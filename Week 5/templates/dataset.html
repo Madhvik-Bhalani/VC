@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Display diabetes dataset -->
+<div class="dataset-container my-4">
+
+    <h2 class="text-body-emphasis text-center">Explore Dataset</h2>
+    <div class="horizontal-separator mb-4 mx-auto"></div>
+    <p class="table-text d-block mx-auto text-center my-3 mb-4">
+        This dataset, from the National Institute of Diabetes and Digestive and Kidney Diseases, predicts diabetes in
+        females aged 21 or older using diagnostic measurements. <b>Source:</b> <a class="source-link"
+            href="https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database" target="_blank">kaggle</a>
+    <p>
+
+    <table id="dataset" class="table table-striped dataset-table mx-auto w-100 mt-2">
+        <thead>
+            <tr>
+                {% for column in datas.columns.tolist() %}
+                <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in datas.values %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+                <td>{{ i[6] }}</td>
+                <td>{{ i[7] }}</td>
+                <td>{{ i[8] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- create datatable object to render table -->
+{% block dataset_table %}
+<script>
+    new DataTable('#dataset', {
+        scrollY: 500
+    });
+</script>
+{% endblock %}
+
+{% endblock %}
