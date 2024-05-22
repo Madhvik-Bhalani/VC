@@ -1,0 +1,18 @@
+columns:
+- index
+- customerid
+- firstname
+- lastname
+- company
+- city
+- country
+- phone1
+- phone2
+- email
+- subscriptiondate
+- website
+file_name: data
+file_type: csv
+inbound_delimiter: ','
+outbound_delimiter: '|'
+skip_leading_rows: 1
